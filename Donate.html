@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Donation Wizard</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    :root {
+      --uj-orange: #f26522;
+      --dark-orange: #f26522;
+      --gray: #ccc;
+      --black: #000;
+      --white: #fff;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: var(--white);
+      color: #333;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      position: relative;
+    }
+
+    .back-arrow {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 1.5rem;
+      color: var(--uj-orange);
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .logo {
+      width: 100px;
+      margin: 60px auto 20px;
+      display: block;
+    }
+
+    .description {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .step-indicators {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .step-indicators div {
+      text-align: center;
+      flex: 1;
+      color: #999;
+    }
+
+    .step-indicators .active {
+      color: var(--uj-orange);
+      font-weight: bold;
+    }
+
+    .step-indicators span {
+      background-color: var(--uj-orange);
+      color: var(--white);
+      border-radius: 50%;
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      text-align: center;
+      line-height: 24px;
+      margin-bottom: 5px;
+    }
+
+    .step-content {
+      display: none;
+    }
+
+    .step-content.active {
+      display: block;
+    }
+
+    select, input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .amount-buttons button {
+      background-color: var(--uj-orange);
+      color: var(--white);
+      border: none;
+      margin: 5px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .amount-buttons button.selected {
+      background-color: var(--black);
+    }
+
+    .nav-buttons {
+      text-align: right;
+      margin-top: 30px;
+    }
+
+    .nav-buttons button {
+      background-color: var(--uj-orange);
+      color: var(--white);
+      border: none;
+      padding: 10px 25px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .nav-buttons button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a class="back-arrow" onclick="goBack()">←</a>
+    <img src="pictures/uj logo.jpeg" alt="UJ Logo" class="logo" />
+
+    <div class="description">
+      <p>
+        It is in breaking the poverty cycle of thousands of South African students and becoming a powerful driver of socioeconomic development and growth that we at UJ find our passion...<br>
+        Below you will find some information that we require from you in order to process your donation.
+      </p>
+    </div>
+
+    <div class="step-indicators">
+      <div class="active"><span>1</span><br>Funding<br>choices</div>
+      <div><span>2</span><br>Payment<br>options</div>
+      <div><span>3</span><br>Donor<br>details</div>
+      <div><span>4</span><br>Check<br>out</div>
+      <div><span>5</span><br>Done</div>
+    </div>
+
+    <!-- Step 1 -->
+    <div class="step-content active" id="step-1">
+      <label>Allocation</label>
+      <select>
+        <option>Please select a project</option>
+        <option>Food Bank</option>
+        <option>R20 for 20</option>
+        <option>Scholarship Fund</option>
+      </select>
+
+      <label>Amount</label>
+      <div class="amount-buttons">
+        <button>R 100</button>
+        <button>R 200</button>
+        <button class="selected">R 500</button>
+        <button>R 1000</button>
+        <button>R 2000</button>
+        <button>Other</button>
+      </div>
+
+      <label>Are you an Alumni? (Please provide us with your Student number)</label>
+      <input type="text" placeholder="Enter student number">
+    </div>
+
+    <!-- Step 2 (example) -->
+    <div class="step-content" id="step-2">
+      <h3>Select a Payment Method:</h3>
+      <div class="amount-buttons">
+        <button>Credit Card</button>
+        <button>Debit Card</button>
+        <button>SnapScan</button>
+        <button>Bank EFT</button>
+      </div>
+    </div>
+
+    <!-- Additional steps go here... -->
+
+    <div class="nav-buttons">
+      <button onclick="nextStep()">Next &gt;</button>
+    </div>
+  </div>
+
+  <script>
+    let currentStep = 1;
+    const totalSteps = 5;
+
+    function nextStep() {
+      if (currentStep >= totalSteps) return;
+      document.getElementById(`step-${currentStep}`).classList.remove('active');
+      currentStep++;
+      const next = document.getElementById(`step-${currentStep}`);
+      if (next) next.classList.add('active');
+
+      const indicators = document.querySelectorAll('.step-indicators div');
+      indicators.forEach((el, i) => {
+        el.classList.toggle('active', i === currentStep - 1);
+      });
+    }
+
+    function goBack() {
+      if (currentStep <= 1) return;
+      document.getElementById(`step-${currentStep}`).classList.remove('active');
+      currentStep--;
+      document.getElementById(`step-${currentStep}`).classList.add('active');
+
+      const indicators = document.querySelectorAll('.step-indicators div');
+      indicators.forEach((el, i) => {
+        el.classList.toggle('active', i === currentStep - 1);
+      });
+    }
+  </script>
+</body>
+</html>

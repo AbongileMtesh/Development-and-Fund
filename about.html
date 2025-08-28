@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donor-wall</title>
+     <link rel="stylesheet" href="Home.css">
+       <link rel="stylesheet" href="https://use.typekit.net/hcj4fmf.css">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-top-bar">
+            <div class="container">
+                <nav class="top-nav">
+                    <ul>
+                      <li>
+                        <div class="countdown-container">
+                          <div class="uj">UJ@21</div>
+                          <div class="count-number" id="daysLeft"></div>
+                          <div class="count-label">DAYS TO GO</div>
+                        </div>
+                      </li>
+                    </ul>
+                </nav>
+                <div class="tagline">Our Future. Reimagined.</div>
+            </div>
+        </div>
+        <!--For mobile-->
+        <div class="header-main-content">
+            <div class="container">
+              <button class="hamburger-menu" aria-label="Toggle navigation">
+  <i class="fas fa-bars"></i>
+</button><!--Mobile-->
+
+                <div class="logo">
+                    <a href="Home.html">
+                       
+                        <span class="uj-slogan">
+                           <img src="pictures/UJ_Stamp_B.jpg"  alt="University of Johannesburg Logo">
+                        </span>
+                    </a>
+                </div>
+
+                <nav class="main-nav">
+                    <ul>
+                         <li><a href="Home.html">Home</a></li>
+                          <li class="dropdown">
+  <a href="Staff.html">
+    About Us <i class="fa-solid fa-chevron-down"></i>
+  </a>
+  <div class="dropdown-content">
+    <a href="Staff.html#staff">Staff</a>
+  </div>
+</li>
+      
+                        <li><a href="projects.html">Campaigns </a></li>
+                         <li class="dropdown">
+  <a href="waytogive.html">
+    How to give <i class="fa-solid fa-chevron-down"></i>
+  </a>
+  <div class="dropdown-content">
+    <a href="waytogive.html#benefits">Benefits of Giving</a>
+  </div>
+</li>
+                        <li><a href="about.html">Donor wall</a></li>
+                        <li><a href="Home.html#contact">Contact Us</a></li>
+                        <li><div class="project-links">
+                          <a href="Allrounder.html" style="color:#fff;background-color: #f26522;margin-top: -30px;">DONATE</a>
+                        </li> 
+                    </ul>
+                </nav>
+            </div> 
+        </div>
+        <!-- Mobile Menu Overlay -->
+<div class="mobile-menu-overlay" id="mobileMenu">
+  <div class="mobile-menu-header">
+    <img src="pictures/uj logo long.gif" alt="UJ Logo" class="mobile-logo">
+    <button class="close-menu-btn" id="closeMenuBtn">&times;</button>
+  </div>
+  <nav class="mobile-nav">
+    <ul>
+      <li><a href="Home.html">Home</a></li>
+      <li><a href="Staff.html"> About Us </a>
+      <li><a href="Staff.html#staff">Staff</a></li>
+      <li><a href="projects.html">Campaigns</a></li>
+      <li><a href="waytogive.html">How to give</a></li>
+      <li><a href="waytogive.html#benefits">Benefits of giving</a></li>
+       <li><a href="about.html">Donor wall</a></li>
+      <li><a href="Home.html#contact">Contact Us</a></li>
+      <li><a href="Allrounder.html">DONATE</a></li>
+    </ul>
+  </nav>
+</div>
+</header>
+
+
+<section id="donor-wall">
+
+  <h1 class="thank-you-title">THANK YOU!</h1>
+  <p class="thank-you-subtitle">
+    We are very grateful to the following organisations and indivisuals who have contributed time, money, thoughts and heart to helping out initiatives a success.
+  </p>
+  <!-- Logo Slider -->
+   <h2 class="section-heading">Organisations</h2>
+  <div class="logo-slider">
+    <div class="logo-track">
+      <img src="pictures/Standard-Bank-sponsor.png" alt="Standard Bank" />
+      <img src="pictures/Adidas-Logo.png" alt="Adidas" />
+      <img src="pictures/checkers.jpg" alt="Checkers" />
+      <img src="pictures/Sibanye-Stillwater.svg.png" alt="MNS Attorneys" />
+      <img src="pictures/unnamed.png" alt="Fundi" />
+      <!-- Duplicate logos for seamless looping -->
+      <img src="pictures/Standard-Bank-sponsor.png" alt="Standard Bank" />
+      <img src="pictures/Adidas-Logo.png" alt="Adidas" />
+      <img src="pictures/checkers.jpg" alt="Checkers" />
+      <img src="pictures/Sibanye-Stillwater.svg.png" alt="MNS Attorneys" />
+      <img src="pictures/unnamed.png" alt="Fundi" />
+    </div>
+  </div>
+
+  <!-- Donor Cards Grid -->
+   <h2 class="section-heading">Individual Donors</h2>
+<div class="donor-grid" id="donorGrid"></div>
+  <!-- Pagination (Optional Static Preview) 
+  <div class="pagination">
+    <span class="active">1</span>
+    <span>2</span>
+    <span>3</span>
+    <span>...</span>
+  </div>-->
+</section>
+
+
+
+
+
+
+
+
+
+
+ <script src="Home.js"></script>
+</body>
+</html>
